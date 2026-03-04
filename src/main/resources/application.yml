@@ -1,0 +1,30 @@
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username:  # Este é o seu e-mail (Remetente)
+    password:   # Sua senha de app
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true             # Corrigido: era startless
+          connectiontimeout: 5000
+          timeout: 3000
+          writetimeout: 5000
+          # O socketFactory costuma ser necessário apenas para a porta 465 (SSL)
+          # Para a porta 587 (TLS), o starttls acima é o padrão
+
+  thymeleaf:
+    enabled: true                    # O padrão é enabled: true
+
+# Esta chave DEVE ficar na raiz (fora do bloco spring)
+envio:
+  email:
+    remetente:
+      nomeRemetente: 'Matheus'
+
+server:
+  port: 8082
